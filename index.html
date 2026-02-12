@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Panel Shop | Where Quality Meets Affordability</title>
-    <meta name="description" content="International Panel Shop: Over 20 years of excellence in auto body repairs. Quality meets affordability in Goodwood.">
+    <title>International Panel Shop | Quality Meets Affordability</title>
+    <meta name="description" content="Over 20 years of experience in auto body repairs. We specialize in panel beating and spray painting in Goodwood.">
     
     <script type="application/ld+json">
     {
@@ -36,11 +36,19 @@
         @font-face { font-family: 'Gasterol'; src: url('assets/fonts/Gasterol.woff2'); }
         :root { --brand-lime: #D5FF3F; --brand-black: #000000; }
         
-        body { background-color: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; margin: 0; }
+        /* Global Legibility Updates */
+        body { 
+            background-color: var(--brand-black); 
+            color: white; 
+            font-family: 'Avenir', sans-serif; 
+            margin: 0; 
+            font-size: 18px; /* Increased base size */
+            line-height: 1.6;
+        }
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
         .brand-lime-text { color: var(--brand-lime); }
         
-        /* Hero Section using your hero.jpg */
+        /* Lighter Hero Section */
         .hero-section { 
             position: relative;
             min-height: 95vh;
@@ -49,157 +57,204 @@
             justify-content: center;
             text-align: center;
             padding: 0 1.5rem;
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85)), url('assets/img/hero.jpg'); 
+            /* Lightened overlays to let hero.jpg show clearly while making text pop */
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('assets/img/hero.jpg'); 
             background-size: cover;
             background-position: center;
         }
+        .hero-title { text-shadow: 0px 4px 15px rgba(0,0,0,0.9); }
 
+        /* Larger Form Legibility */
         .form-input {
             background: #0a0a0a;
-            border: 1px solid #333;
-            padding: 1rem;
+            border: 1px solid #444;
+            padding: 1.25rem;
             width: 100%;
             outline: none;
             transition: border-color 0.3s;
             color: white;
-            font-size: 0.9rem;
+            font-size: 1.1rem; /* No more straining eyes */
         }
         .form-input:focus { border-color: var(--brand-lime); }
+        .form-label { font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; display: block; }
         
         .upload-box {
-            border: 1px dashed #444;
+            border: 2px dashed #444;
             background: #050505;
             transition: all 0.3s;
             position: relative;
+            padding: 1.5rem;
         }
         .upload-box:hover { border-color: var(--brand-lime); background: #0a0a0a; }
-        
-        .nav-link { transition: color 0.3s ease; }
-        .nav-link:hover { color: var(--brand-lime); }
 
-        /* Google Reviews Widget Custom Styling */
-        .reviews-container {
-            padding: 80px 0;
-            color: #777;
-            text-align: center;
-            background-color: #050505;
-        }
-        .reviews-container p {
-            font-size: 60px;
-            color: #777;
-        }
+        .nav-link { transition: color 0.3s ease; font-size: 0.85rem; }
+        .nav-link:hover { color: var(--brand-lime); }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
         <a href="index.html" class="flex items-center gap-2">
             <span class="gasterol text-2xl brand-lime-text">IPS</span>
             <span class="hidden md:block gasterol text-sm tracking-tighter opacity-70">International Panel Shop</span>
         </a>
-
-        <div class="hidden md:flex gap-8 gasterol text-xs items-center">
+        <div class="hidden md:flex gap-8 gasterol items-center">
             <a href="index.html" class="brand-lime-text">Home</a>
             <a href="services.html" class="nav-link">R2R & Services</a>
             <a href="gallery.html" class="nav-link">Wall of Fame</a>
             <a href="https://sure-drive-9a8c9.web.app/" class="nav-link">Sure Drive</a>
-            <a href="#quote-form" class="brand-lime-text border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition uppercase">Request Quote</a>
+            <a href="#quote-form" class="brand-lime-text border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition uppercase text-xs">Request Quote</a>
         </div>
     </nav>
 
     <main>
         <section class="hero-section">
-            <div class="max-w-4xl z-10">
+            <div class="max-w-4xl z-10 hero-title">
                 <h2 class="gasterol text-4xl md:text-5xl leading-tight mb-2">Where Quality Meets</h2>
-                <h1 class="gasterol text-5xl md:text-7xl brand-lime-text mb-8">Affordability</h1>
-                
-                <p class="text-lg md:text-xl opacity-80 max-w-3xl mx-auto mb-10 leading-relaxed">
+                <h1 class="gasterol text-6xl md:text-8xl brand-lime-text mb-8">Affordability</h1>
+                <p class="text-xl md:text-2xl opacity-100 max-w-3xl mx-auto mb-10 leading-relaxed font-bold">
                     International Panel Shop has more than 20yrs experience in the industry of auto body repairs, with many satisfied customers. From private to insurance quotes, we are just one click away for a free quote to repair your car.
                 </p>
-                
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-10 py-5 font-bold gasterol hover:bg-white transition">
-                        WhatsApp Quote
-                    </a>
-                    <a href="#quote-form" class="border-2 border-[#D5FF3F] brand-lime-text px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">
-                        Request Quote
-                    </a>
+                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-12 py-5 font-bold gasterol text-lg hover:bg-white transition">WhatsApp Quote</a>
+                    <a href="#quote-form" class="border-2 border-[#D5FF3F] brand-lime-text px-12 py-5 font-bold gasterol text-lg hover:bg-[#D5FF3F] hover:text-black transition">Request Quote</a>
                 </div>
             </div>
         </section>
 
         <section id="quote-form" class="py-24 bg-black border-t border-gray-900">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl gasterol brand-lime-text">Get a Free, No-Obligation Quote</h2>
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <div>
+                    <h2 class="text-4xl gasterol brand-lime-text mb-8">No-Obligation Free Quote</h2>
+                    <ul class="text-2xl space-y-3 mb-12 font-medium opacity-90">
+                        <li>• Panelbeating</li>
+                        <li>• Spray painting</li>
+                        <li>• Plastic bumper repairs</li>
+                        <li>• Rust Repairs</li>
+                        <li>• Accident repairs</li>
+                        <li>• Color Change</li>
+                        <li>• Full Re-sprays</li>
+                        <li><span class="brand-lime-text">• Save your write-off</span></li>
+                    </ul>
+
+                    <div class="bg-[#050505] border border-gray-800 p-8">
+                        <h3 class="gasterol text-xl brand-lime-text mb-4">Save a write off</h3>
+                        <p class="text-lg opacity-80 mb-6">
+                            This BMW was going to be written off by the insurance. What is the point then of insurance if the car cannot be repaired?
+                        </p>
+                        <p class="text-lg opacity-80 mb-8">
+                            That is where International Panel Shop came in. We were able to repair parts that would otherwise have to be replaced, saving money and making the insurance quote significantly less. The car was repaired to perfection.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs uppercase opacity-40 mb-2">Before</p>
+                                <img src="assets/img/bmwbefore.jpg" alt="BMW Before" class="w-full border border-gray-800">
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase opacity-40 mb-2">After</p>
+                                <img src="assets/img/bmwafter.jpg" alt="BMW After" class="w-full border border-gray-800">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <form action="send_quote.php" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <form action="send_quote.php" method="POST" enctype="multipart/form-data" class="space-y-6">
                     <div style="display:none;"><input type="text" name="checking_field"></div>
                     
-                    <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40 uppercase">1. Contact & Vehicle</label>
-                        <input type="text" name="name" placeholder="Full Name *" required class="form-input">
-                        <input type="text" name="phone" placeholder="Phone Number *" required class="form-input">
-                        <input type="email" name="email" placeholder="Email Address" class="form-input">
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" name="make" placeholder="Make *" required class="form-input">
-                            <input type="text" name="model" placeholder="Model *" required class="form-input">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <span class="form-label gasterol opacity-40">Client Name</span>
+                            <input type="text" name="name" placeholder="Full Name *" required class="form-input">
                         </div>
-                        <input type="text" name="year" placeholder="Year *" required class="form-input">
+                        <div>
+                            <span class="form-label gasterol opacity-40">Phone</span>
+                            <input type="text" name="phone" placeholder="Phone Number *" required class="form-input">
+                        </div>
                     </div>
 
-                    <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40 uppercase">2. Description</label>
-                        <textarea name="damage" placeholder="Describe the damage..." rows="5" required class="form-input"></textarea>
-                        <div class="p-4 bg-[#050505] border border-gray-800">
-                            <p class="text-[10px] gasterol opacity-40 mb-3 uppercase">Claim Type</p>
-                            <div class="flex items-center gap-6 text-xs">
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="claim_type" value="private" checked class="accent-[#D5FF3F]"> Private / Cash</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="claim_type" value="insurance" class="accent-[#D5FF3F]"> Insurance</label>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="md:col-span-1">
+                            <span class="form-label gasterol opacity-40">Make</span>
+                            <input type="text" name="make" placeholder="e.g. BMW *" required class="form-input">
+                        </div>
+                        <div class="md:col-span-1">
+                            <span class="form-label gasterol opacity-40">Model</span>
+                            <input type="text" name="model" placeholder="e.g. 320i *" required class="form-input">
+                        </div>
+                        <div class="md:col-span-1">
+                            <span class="form-label gasterol opacity-40">Year</span>
+                            <input type="text" name="year" placeholder="Year *" required class="form-input">
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="form-label gasterol opacity-40">Description of damage</span>
+                        <textarea name="damage" placeholder="Please describe what needs repair... *" rows="4" required class="form-input"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="upload-box">
+                            <input type="file" name="vehicle_photos[]" id="img-input" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10">
+                            <div class="text-center">
+                                <p class="text-sm brand-lime-text font-bold mb-1" id="img-label">UPLOAD PHOTOS (MAX 4)</p>
+                                <p class="text-[10px] opacity-40">Click to choose images</p>
+                            </div>
+                        </div>
+                        <div class="upload-box">
+                            <input type="file" name="existing_quote" id="quote-input" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10">
+                            <div class="text-center">
+                                <p class="text-sm opacity-80 font-bold mb-1" id="quote-label">UPLOAD EXISTING QUOTE</p>
+                                <p class="text-[10px] opacity-40">PDF or Image</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40 uppercase">3. Uploads</label>
-                        <div class="upload-box p-4 text-center border-2 border-dashed border-gray-800 hover:border-[#D5FF3F] transition cursor-pointer">
-                            <input type="file" name="vehicle_photos[]" id="img-input" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
-                            <p class="text-[10px] opacity-60" id="img-label">Click here to choose images (Max 4)</p>
-                        </div>
-                        <div class="upload-box p-4 text-center border border-gray-800 hover:border-white transition cursor-pointer">
-                            <input type="file" name="existing_quote" id="quote-input" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer">
-                            <p class="text-[10px] opacity-40" id="quote-label">Upload existing quote (PDF/IMG)</p>
-                        </div>
-                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-4 font-bold gasterol text-lg hover:bg-white transition mt-2">
-                            SUBMIT QUOTE REQUEST
-                        </button>
+                    <div class="flex items-center gap-8 py-2">
+                        <label class="flex items-center gap-3 cursor-pointer text-lg"><input type="radio" name="claim_type" value="private" checked class="h-5 w-5 accent-[#D5FF3F]"> Private / Cash</label>
+                        <label class="flex items-center gap-3 cursor-pointer text-lg"><input type="radio" name="claim_type" value="insurance" class="h-5 w-5 accent-[#D5FF3F]"> Insurance Claim</label>
                     </div>
+
+                    <button type="submit" class="w-full bg-[#D5FF3F] text-black py-5 font-bold gasterol text-2xl hover:bg-white transition">
+                        Send Quote Request
+                    </button>
                 </form>
+            </div>
+        </section>
 
-                <div class="mt-20 space-y-8">
-                    <div class="text-center border-b border-gray-900 pb-10">
-                        <p class="opacity-80 mb-4">Want to know more about Sure Drive?</p>
-                        <a href="https://sure-drive-9a8c9.web.app/" target="_blank" class="inline-flex items-center gap-4 brand-lime-text gasterol text-sm hover:opacity-80 transition">
-                            <img src="assets/img/suredrive.jpg" alt="Sure Drive Logo" class="h-10 w-auto rounded shadow-lg"> 
-                            <span class="underline underline-offset-8 decoration-1">Follow the link</span>
-                        </a>
+        <section class="py-24 bg-[#050505]">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="p-12 border-2 border-[#D5FF3F] bg-black text-center shadow-[0_0_30px_rgba(213,255,63,0.1)]">
+                    <img src="assets/img/suredrive.jpg" alt="Sure Drive Logo" class="h-16 mx-auto mb-8">
+                    <h2 class="text-3xl gasterol brand-lime-text mb-6">Pre-Pay Your Repairs. Protect Your Asset.</h2>
+                    <p class="text-xl opacity-90 leading-relaxed mb-10">
+                        Avoid unexpected automotive bills. Convert cash into secure SureBucks, lock in repair quality, and drive stress-free.
+                    </p>
+                    <a href="https://sure-drive-9a8c9.web.app/" target="_blank" class="brand-lime-text gasterol text-xl underline underline-offset-8 decoration-1 hover:opacity-70 transition">Follow the link</a>
+                </div>
+                
+                <div class="mt-16 flex flex-col md:flex-row items-center justify-between p-8 border border-gray-800 bg-black gap-8">
+                    <div class="text-left">
+                        <h3 class="text-xl gasterol brand-lime-text">Need a 2nd quote for insurance?</h3>
+                        <p class="opacity-60">Our expert quoting system for professional estimates.</p>
                     </div>
-
-                    <div class="p-10 border border-gray-800 bg-[#050505] rounded-sm flex flex-col md:flex-row items-center justify-between gap-10">
-                        <div class="max-w-md">
-                            <h3 class="text-2xl gasterol brand-lime-text mb-2">Need a 2nd quote for insurance?</h3>
-                            <p class="opacity-60 text-sm leading-relaxed">Download our expert quoting system on the Google Play Store for professional estimates.</p>
-                        </div>
-                        <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank" class="hover:scale-105 transition-transform duration-300">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-16">
-                        </a>
-                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-14">
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section class="reviews-container">
+        <section class="py-24 bg-black border-t border-gray-900">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-4xl gasterol mb-12">Customer Testimonial</h2>
+                <div class="aspect-video shadow-2xl">
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/bOR0qwJKZFc" title="Customer Testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-[#050505]">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="embedsocial-widget" data-ref="e26c4526b8173a0c8c5955ccabcc2458"> 
                     <a href="https://embedsocial.com/google-reviews-widget/" title="Add Google reviews on a website" target="_blank" class="powered-by-es es-slider"> 
@@ -208,56 +263,55 @@
                     </a> 
                 </div> 
                 <script> 
-                (function(d, s, id) { 
-                    var js; if (d.getElementById(id)) {return;} 
-                    js = d.createElement(s); js.id = id; 
-                    js.src = "https://embedsocial.com/cdn/aht.js"; 
-                    d.getElementsByTagName("head")[0].appendChild(js); 
-                }(document, "script", "EmbedSocialWidgetScript")); 
+                (function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/aht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialWidgetScript")); 
                 </script>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#050505] border-t border-gray-900 pt-20 pb-10 px-6 text-sm">
+    <footer class="bg-black border-t border-gray-900 pt-20 pb-10 px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
             <div class="col-span-1 md:col-span-2">
-                <h3 class="gasterol brand-lime-text text-xl mb-6">International Panel Shop</h3>
-                [cite_start]<p class="opacity-60 mb-6 max-w-sm leading-relaxed">Over two decades of excellence in the auto body repair industry[cite: 7]. [cite_start]Expert panel beating and spray painting since 2003[cite: 1, 16].</p>
-                <p class="font-bold text-base">7 Bloem Street, Townsend Estate, Goodwood, Cape Town, 7460</p>
+                <h3 class="gasterol brand-lime-text text-2xl mb-6">International Panel Shop</h3>
+                <p class="opacity-60 mb-6 max-w-sm">
+                    Where Quality Meets Affordability. Over 20 years of excellence in auto body restoration.
+                </p>
+                <p class="font-bold text-lg">
+                    7 Bloem Street, Townsend Estate,<br>
+                    Goodwood, Cape Town, 7460
+                </p>
             </div>
             <div>
                 <h4 class="gasterol text-xs mb-6 opacity-40 uppercase tracking-widest">Navigation</h4>
-                <ul class="space-y-3">
-                    <li><a href="services.html" class="hover:text-[#D5FF3F] transition">R2R & Services</a></li>
-                    <li><a href="gallery.html" class="hover:text-[#D5FF3F] transition">Wall of Fame</a></li>
-                    <li><a href="https://sure-drive-9a8c9.web.app/" class="hover:text-[#D5FF3F] transition">Sure Drive</a></li>
-                    <li><a href="legal.html" class="hover:text-[#D5FF3F] transition">Terms & Conditions</a></li>
+                <ul class="space-y-4 text-sm">
+                    <li><a href="services.html" class="hover:text-[#D5FF3F]">R2R & Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#D5FF3F]">Wall of Fame</a></li>
+                    <li><a href="https://sure-drive-9a8c9.web.app/" class="hover:text-[#D5FF3F]">Sure Drive</a></li>
+                    <li><a href="legal.html" class="hover:text-[#D5FF3F]">Terms & Conditions</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="gasterol text-xs mb-6 opacity-40 uppercase tracking-widest">Internal Access</h4>
-                <ul class="space-y-3 opacity-60">
-                    <li><a href="checkin/index.html" class="hover:text-[#D5FF3F] transition">Vehicle Check-in</a></li>
-                    <li><a href="release/index.html" class="hover:text-[#D5FF3F] transition">Vehicle Release</a></li>
-                    <li><a href="https://wa.me/27716871308" class="brand-lime-text font-bold">WhatsApp Admin</a></li>
+                <h4 class="gasterol text-xs mb-6 opacity-40 uppercase tracking-widest">Internal</h4>
+                <ul class="space-y-4 text-sm opacity-60">
+                    <li><a href="checkin/index.html" class="hover:text-[#D5FF3F]">Vehicle Check-in</a></li>
+                    <li><a href="release/index.html" class="hover:text-[#D5FF3F]">Vehicle Release</a></li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30 text-[10px] tracking-widest uppercase">
+        <div class="border-t border-gray-900 pt-10 flex justify-between items-center opacity-30 text-[10px] tracking-widest uppercase">
             <p>&copy; 2026 IPS Goodwood. All Rights Reserved.</p>
             <p>Lat: -33.9056 | Long: 18.5472</p>
         </div>
     </footer>
 
-    <script src="assets/js/engagement.js" defer></script>
     <script>
+        // File upload UI helpers
         document.getElementById('img-input').onchange = function() {
-            document.getElementById('img-label').innerHTML = this.files.length + " photos selected";
+            document.getElementById('img-label').innerHTML = this.files.length + " PHOTOS SELECTED";
             document.getElementById('img-label').style.color = "#D5FF3F";
         };
         document.getElementById('quote-input').onchange = function() {
-            document.getElementById('quote-label').innerHTML = "Quote document attached";
+            document.getElementById('quote-label').innerHTML = "QUOTE ATTACHED";
             document.getElementById('quote-label').style.color = "#D5FF3F";
         };
     </script>
