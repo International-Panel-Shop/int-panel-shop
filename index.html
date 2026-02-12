@@ -58,13 +58,16 @@
         }
         .form-input:focus { border-color: var(--brand-lime); }
         
-        /* Custom styling for the upload boxes to match Brand Kit aesthetics */
         .upload-box {
             border: 1px dashed #444;
             background: #050505;
             transition: all 0.3s;
+            position: relative;
         }
         .upload-box:hover { border-color: var(--brand-lime); background: #0a0a0a; }
+        
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--brand-lime); }
     </style>
 </head>
 <body>
@@ -77,9 +80,9 @@
 
         <div class="hidden md:flex gap-8 gasterol text-xs items-center">
             <a href="index.html" class="brand-lime-text">Home</a>
-            <a href="services.html" class="hover:text-[#D5FF3F] transition">R2R & Services</a>
-            <a href="gallery.html" class="hover:text-[#D5FF3F] transition">Wall of Fame</a>
-            <a href="https://sure-drive-9a8c9.web.app/" class="hover:text-[#D5FF3F] transition">Sure Drive</a>
+            <a href="services.html" class="nav-link">R2R & Services</a>
+            <a href="gallery.html" class="nav-link">Wall of Fame</a>
+            <a href="https://sure-drive-9a8c9.web.app/" class="nav-link">Sure Drive</a>
             <a href="#quote-form" class="brand-lime-text border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition uppercase">Request Quote</a>
         </div>
     </nav>
@@ -116,51 +119,44 @@
                     <div style="display:none;"><input type="text" name="checking_field"></div>
                     
                     <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40">Client Information</label>
+                        <label class="block text-[10px] gasterol opacity-40 uppercase">1. Contact & Vehicle</label>
                         <input type="text" name="name" placeholder="Full Name *" required class="form-input">
                         <input type="text" name="phone" placeholder="Phone Number *" required class="form-input">
                         <input type="email" name="email" placeholder="Email Address" class="form-input">
-                        
-                        <label class="block text-[10px] gasterol opacity-40 mt-6">Vehicle Details</label>
-                        <input type="text" name="make" placeholder="Vehicle Make *" required class="form-input">
-                        <input type="text" name="model" placeholder="Vehicle Model *" required class="form-input">
-                        <input type="text" name="year" placeholder="Vehicle Year *" required class="form-input">
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" name="make" placeholder="Make *" required class="form-input">
+                            <input type="text" name="model" placeholder="Model *" required class="form-input">
+                        </div>
+                        <input type="text" name="year" placeholder="Year *" required class="form-input">
                     </div>
 
                     <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40">Damage Details</label>
-                        <textarea name="damage" placeholder="Please describe the damage in detail... *" rows="6" required class="form-input"></textarea>
-                        
-                        <div class="p-4 bg-[#050505] border border-gray-900">
-                            <p class="text-[10px] gasterol opacity-40 mb-3">Claim Type</p>
+                        <label class="block text-[10px] gasterol opacity-40 uppercase">2. Description</label>
+                        <textarea name="damage" placeholder="Describe the damage..." rows="5" required class="form-input"></textarea>
+                        <div class="p-4 bg-[#050505] border border-gray-800">
+                            <p class="text-[10px] gasterol opacity-40 mb-3 uppercase">Claim Type</p>
                             <div class="flex items-center gap-6 text-xs">
                                 <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="claim_type" value="private" checked class="accent-[#D5FF3F]"> Private / Cash</label>
-                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="claim_type" value="insurance" class="accent-[#D5FF3F]"> Insurance Claim</label>
+                                <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="claim_type" value="insurance" class="accent-[#D5FF3F]"> Insurance</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40">Visual Evidence (Highly Recommended)</label>
+                        <label class="block text-[10px] gasterol opacity-40 uppercase">3. Uploads (Max 4 Images + Quote)</label>
                         
-                        <div class="upload-box p-6 text-center">
-                            <p class="text-xs mb-2">Upload Damage Photos (Max 4)</p>
-                            <input type="file" name="vehicle_photos[]" id="v_photos" multiple accept="image/*" class="hidden">
-                            <label for="v_photos" class="text-[10px] brand-lime-text border border-[#D5FF3F] px-4 py-2 gasterol cursor-pointer hover:bg-[#D5FF3F] hover:text-black transition">
-                                Select Images
-                            </label>
+                        <div class="upload-box p-4 text-center border-2 border-dashed border-gray-800 hover:border-[#D5FF3F] transition cursor-pointer">
+                            <input type="file" name="vehicle_photos[]" id="img-input" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+                            <p class="text-[10px] opacity-60" id="img-label">Click here to choose images (Max 4)</p>
                         </div>
 
-                        <div class="upload-box p-6 text-center">
-                            <p class="text-xs mb-2">Have an existing quote? Upload here</p>
-                            <input type="file" name="existing_quote" id="e_quote" accept=".pdf,image/*" class="hidden">
-                            <label for="e_quote" class="text-[10px] opacity-60 border border-gray-600 px-4 py-2 gasterol cursor-pointer hover:border-white hover:text-white transition">
-                                Upload Document
-                            </label>
+                        <div class="upload-box p-4 text-center border border-gray-800 hover:border-white transition cursor-pointer">
+                            <input type="file" name="existing_quote" id="quote-input" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer">
+                            <p class="text-[10px] opacity-40" id="quote-label">Upload existing quote (PDF/IMG)</p>
                         </div>
 
-                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-5 font-bold gasterol text-lg hover:bg-white transition mt-4">
-                            Send Quote Request
+                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-4 font-bold gasterol text-lg hover:bg-white transition mt-2">
+                            SUBMIT QUOTE REQUEST
                         </button>
                     </div>
                 </form>
@@ -177,7 +173,7 @@
                     <div class="p-10 border border-gray-800 bg-[#050505] rounded-sm flex flex-col md:flex-row items-center justify-between gap-10">
                         <div class="max-w-md">
                             <h3 class="text-2xl gasterol brand-lime-text mb-2">Need a 2nd quote for insurance?</h3>
-                            <p class="opacity-60 text-sm leading-relaxed">Download our expert quoting system on the Google Play Store for professional estimates and insurance-ready reports.</p>
+                            <p class="opacity-60 text-sm leading-relaxed">Download our expert quoting system on the Google Play Store for professional estimates.</p>
                         </div>
                         <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank" class="hover:scale-105 transition-transform duration-300">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-16">
@@ -190,7 +186,7 @@
         <section class="py-24 bg-[#050505]">
             <div class="max-w-6xl mx-auto px-6 text-center">
                 <h2 class="gasterol brand-lime-text text-3xl mb-12">Customer Feedback</h2>
-                <div id="google-reviews" class="min-h-[200px]">
+                <div id="google-reviews">
                     </div>
             </div>
         </section>
@@ -200,9 +196,9 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
             
             <div class="col-span-1 md:col-span-2">
-                <h3 class="gasterol brand-lime-text text-2xl mb-6">International Panel Shop</h3>
+                <h3 class="gasterol brand-lime-text text-xl mb-6">International Panel Shop</h3>
                 <p class="opacity-60 mb-6 max-w-sm leading-relaxed">
-                    Over two decades of excellence in the auto body repair industry. We pride ourselves on restoring your vehicle with precision and care.
+                    Over two decades of excellence in the auto body repair industry. Expert panel beating and spray painting since 2003.
                 </p>
                 <p class="font-bold text-base">
                     7 Bloem Street, Townsend Estate,<br>
@@ -236,6 +232,17 @@
         </div>
     </footer>
 
+    <script>
+        document.getElementById('img-input').onchange = function() {
+            document.getElementById('img-label').innerHTML = this.files.length + " photos selected";
+            document.getElementById('img-label').style.color = "#D5FF3F";
+        };
+        document.getElementById('quote-input').onchange = function() {
+            document.getElementById('quote-label').innerHTML = "Quote document attached";
+            document.getElementById('quote-label').style.opacity = "1";
+            document.getElementById('quote-label').style.color = "#D5FF3F";
+        };
+    </script>
     <script src="assets/js/engagement.js" defer></script>
 </body>
 </html>
