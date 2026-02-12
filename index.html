@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Panel Shop | Quality Meets Affordability</title>
+    <title>International Panel Shop | Where Quality Meets Affordability</title>
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "International Panel Shop",
-      "image": "assets/img/logos/1.jpg",
+      "image": "assets/img/logos/logoips.png",
       "@id": "https://www.intpanelshop.co.za",
       "url": "https://www.intpanelshop.co.za",
       "telephone": "+27218018007",
@@ -34,13 +34,7 @@
         {"@type": "City", "name": "Panorama"},
         {"@type": "City", "name": "Durbanville"},
         {"@type": "GeoCircle", "geoMidpoint": {"@type": "GeoCoordinates", "latitude": "-33.9056", "longitude": "18.5472"}, "geoRadius": "40000"}
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "17:00"
-      }
+      ]
     }
     </script>
 
@@ -56,6 +50,7 @@
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
         .brand-lime-text { color: var(--brand-lime); }
         
+        /* Lightened Hero: 35% Opacity */
         .hero-section { 
             position: relative;
             min-height: 95vh;
@@ -96,6 +91,7 @@
     <nav class="sticky top-0 w-full z-50 bg-black/95 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
         <a href="index.html" class="flex items-center gap-2">
             <span class="gasterol text-2xl brand-lime-text">IPS</span>
+            <span class="gasterol text-sm tracking-tighter opacity-70">International Panel Shop</span>
         </a>
         <div class="hidden md:flex gap-8 gasterol items-center">
             <a href="index.html" class="brand-lime-text">Home</a>
@@ -113,11 +109,11 @@
                 <h2 class="gasterol text-4xl md:text-5xl mb-2">Where Quality Meets</h2>
                 <h1 class="gasterol text-6xl md:text-8xl brand-lime-text mb-8">Affordability</h1>
                 <p class="text-2xl md:text-3xl opacity-100 max-w-4xl mx-auto mb-10 leading-relaxed font-bold">
-                    International Panel Shop has more than 20yrs experience in auto body repairs. Serving Goodwood, Gardens, and the Atlantic Seaboard.
+                    International Panel Shop has more than 20yrs experience in the industry of auto body repairs, with many satisfied customers. Serving Goodwood, Gardens, Atlantic Seaboard, Panorama, and Durbanville.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-12 py-6 font-bold gasterol text-2xl">WhatsApp Quote</a>
-                    <a href="#quote-form" class="border-2 border-[#D5FF3F] brand-lime-text px-12 py-6 font-bold gasterol text-2xl">Request Quote</a>
+                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-12 py-6 font-bold gasterol text-2xl shadow-xl">WhatsApp Quote</a>
+                    <a href="#quote-form" class="border-2 border-[#D5FF3F] brand-lime-text px-12 py-6 font-bold gasterol text-2xl shadow-xl">Request Quote</a>
                 </div>
             </div>
         </section>
@@ -139,8 +135,8 @@
 
                     <div class="p-8 border-2 border-[#D5FF3F] bg-[#050505] text-center mt-12">
                         <img src="assets/img/suredrive.jpg" alt="Sure Drive" class="h-12 mx-auto mb-4">
-                        <h2 class="text-2xl gasterol brand-lime-text mb-4">Pre-Pay Your Repairs. Protect Your Asset.</h2>
-                        <p class="text-lg opacity-90 mb-6">Avoid unexpected bills. Convert cash into SureBucks and lock in quality.</p>
+                        <h3 class="text-2xl gasterol brand-lime-text mb-4">Pre-Pay Your Repairs. Protect Your Asset.</h3>
+                        <p class="text-lg opacity-90 mb-6">Avoid unexpected automotive bills. Convert cash into secure SureBucks, lock in repair quality, and drive stress-free.</p>
                         <a href="https://sure-drive-9a8c9.web.app/" class="brand-lime-text underline gasterol text-lg">Follow the link</a>
                     </div>
                 </div>
@@ -154,6 +150,7 @@
                             <input type="text" name="make" placeholder="Vehicle Make *" required class="form-input">
                             <input type="text" name="model" placeholder="Model *" required class="form-input">
                         </div>
+                        <input type="text" name="year" placeholder="Vehicle Year *" required class="form-input">
                         <textarea name="damage" placeholder="Damage Description *" rows="4" required class="form-input"></textarea>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -166,7 +163,13 @@
                                 <p class="text-center font-bold text-sm opacity-50 uppercase" id="quote-label">Upload Existing Quote</p>
                             </div>
                         </div>
-                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-6 font-bold gasterol text-2xl shadow-xl">Send Request</button>
+
+                        <div class="flex items-center gap-8 py-2">
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="claim_type" value="private" checked class="h-5 w-5 accent-[#D5FF3F]"> Private / Cash</label>
+                            <label class="flex items-center gap-3 cursor-pointer"><input type="radio" name="claim_type" value="insurance" class="h-5 w-5 accent-[#D5FF3F]"> Insurance Claim</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-6 font-bold gasterol text-2xl shadow-xl hover:bg-white transition">Send Request</button>
                     </form>
 
                     <div class="p-6 border border-gray-800 bg-[#0a0a0a] flex items-center justify-between gap-4">
@@ -184,16 +187,18 @@
                 <div class="p-8 bg-black border border-gray-800 flex flex-col justify-between">
                     <div>
                         <h3 class="text-3xl gasterol brand-lime-text mb-6">Save a write off</h3>
-                        <p class="text-lg opacity-90 mb-6">This BMW was going to be written off. We saved it by repairing parts others would replace.</p>
+                        <p class="text-lg opacity-90 mb-4 font-bold">This BMW was going to be written off by the insurance. What is the point then of insurance if the car cannot be repaired?</p>
+                        <p class="text-lg opacity-80 mb-4">That is where International Panel Shop came in. We were able to repair parts that would otherwise have to be replaced saving money and thus making the insurance quote significantly less.</p>
+                        <p class="text-lg opacity-80 mb-6">As a result the car was repaired to perfection with a very happy customer. You can see her live review of her experience with us by clicking the Youtube button below.</p>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div><p class="text-xs gasterol brand-lime-text mb-2">Before</p><img src="assets/img/bmwbefore.jpg" alt="Before" class="border border-gray-800"></div>
-                        <div><p class="text-xs gasterol brand-lime-text mb-2">After</p><img src="assets/img/bmwafter.jpg" alt="After" class="border border-gray-800"></div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div><p class="text-xs gasterol brand-lime-text mb-2">Before</p><img src="assets/img/bmwbefore.jpg" alt="Before" class="border border-gray-800 w-full"></div>
+                        <div><p class="text-xs gasterol brand-lime-text mb-2">After</p><img src="assets/img/bmwafter.jpg" alt="After" class="border border-gray-800 w-full"></div>
                     </div>
                 </div>
-                <div class="p-8 bg-black border border-gray-800">
-                    <h3 class="text-3xl gasterol mb-6">Customer Story</h3>
-                    <div class="aspect-video">
+                <div class="p-8 bg-black border border-gray-800 flex flex-col justify-center">
+                    <h3 class="text-3xl gasterol mb-6">Customer Experience</h3>
+                    <div class="aspect-video shadow-2xl">
                         <iframe class="w-full h-full" src="https://www.youtube.com/embed/bOR0qwJKZFc" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -207,8 +212,7 @@
             </div>
             
             <div class="w-full h-[500px] border-y border-gray-900">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.393457544062!2d18.544625076646872!3d-33.90526061917631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c5666f7f329%3A0xc6822458e26c4526!2sInternational%20Panel%20Shop%20-%20IPS!5e0!3m2!1sen!2sza!4v1707765000000!5m2!1sen!2sza" 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.2384918764835!2d18.54460777641243!3d-33.90544521110051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c5c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2sInternational%20Panel%20Shop%20-%20IPS!5e0!3m2!1sen!2sza!4v1710000000000!5m2!1sen!2sza" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
@@ -219,7 +223,7 @@
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
             <div class="col-span-1 md:col-span-2">
                 <h3 class="gasterol brand-lime-text text-xl mb-6">International Panel Shop</h3>
-                <p class="text-xl font-bold mb-6">7 Bloem Street, Goodwood, Cape Town, 7460</p>
+                <p class="text-xl font-bold mb-6">7 Bloem Street, Townsend Estate, Goodwood, Cape Town, 7460</p>
                 <div class="space-y-4 opacity-90">
                     <p><i class="fas fa-phone brand-lime-text mr-3"></i> 021 801 8007</p>
                     <p><i class="fab fa-whatsapp brand-lime-text mr-3"></i> +27 71 687 1308</p>
@@ -229,23 +233,23 @@
             <div>
                 <h4 class="gasterol opacity-40 mb-6 uppercase tracking-widest text-xs">Navigation</h4>
                 <ul class="space-y-4 text-sm opacity-80">
-                    <li><a href="services.html">R2R & Services</a></li>
-                    <li><a href="gallery.html">Wall of Fame</a></li>
-                    <li><a href="https://sure-drive-9a8c9.web.app/">Sure Drive</a></li>
-                    <li><a href="legal.html">Terms & Conditions</a></li>
+                    <li><a href="services.html" class="hover:text-[#D5FF3F]">R2R & Services</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#D5FF3F]">Wall of Fame</a></li>
+                    <li><a href="https://sure-drive-9a8c9.web.app/" class="hover:text-[#D5FF3F]">Sure Drive</a></li>
+                    <li><a href="legal.html" class="hover:text-[#D5FF3F]">Terms & Conditions</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="gasterol opacity-40 mb-6 uppercase tracking-widest text-xs">Internal</h4>
+                <h4 class="gasterol opacity-40 mb-6 uppercase tracking-widest text-xs">Internal Access</h4>
                 <ul class="space-y-4 text-sm opacity-80">
-                    <li><a href="checkin/index.php">Vehicle Check-in</a></li>
-                    <li><a href="release/index.php">Vehicle Release</a></li>
+                    <li><a href="checkin/index.php" class="hover:text-[#D5FF3F]">Vehicle Check-in</a></li>
+                    <li><a href="release/index.php" class="hover:text-[#D5FF3F]">Vehicle Release</a></li>
                 </ul>
             </div>
         </div>
-        <div class="mt-12 border-t border-gray-900 pt-10 text-[11px] opacity-40 tracking-widest uppercase flex flex-col md:flex-row justify-between items-center">
+        <div class="mt-12 border-t border-gray-900 pt-10 text-[11px] opacity-40 tracking-widest uppercase flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© 2026 IPS Goodwood. All Rights Reserved.</p>
-            <p><a href="http://www.intpanelshop.co.za">www.intpanelshop.co.za</a> | Lat: -33.9056 | Long: 18.5472</p>
+            <p><a href="http://www.intpanelshop.co.za" class="hover:text-[#D5FF3F]">www.intpanelshop.co.za</a> | Lat: -33.9056 | Long: 18.5472</p>
         </div>
     </footer>
 
