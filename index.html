@@ -3,114 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Panel Shop | Quality Meets Affordability Goodwood</title>
-    <meta name="description" content="Expert panel beating and spray painting in Goodwood, Cape Town. Supporting Right to Repair since 2003. Get a 2nd quote or a free WhatsApp estimate.">
+    <title>IPS | International Panel Shop Goodwood</title>
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "International Panel Shop",
-      "image": "https://www.intpanelshop.co.za/assets/img/logos/1.jpg",
-      "url": "https://www.intpanelshop.co.za",
-      "telephone": "+27218018007",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "7 Bloem Street, Townsend Estate",
-        "addressLocality": "Goodwood",
-        "postalCode": "7460",
-        "addressCountry": "ZA"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-33.9056",
-        "longitude": "18.5472"
-      },
-      "openingHours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00"
-    }
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         @font-face { font-family: 'Gasterol'; src: url('assets/fonts/Gasterol.woff2'); }
         :root { --brand-lime: #D5FF3F; --brand-black: #000000; }
-        body { background-color: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; }
+        body { background: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; }
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
-        .hero-pattern { background-image: url('assets/img/patterns/2.jpg'); background-size: cover; opacity: 0.15; }
-        .nav-link:hover { color: var(--brand-lime); }
+        
+        /* Hero Pattern Background using your Brand Identity Pattern */
+        .hero-pattern { 
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/img/patterns/brand-pattern-lime.jpg'); 
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .form-input {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            padding: 1rem;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus { border-color: var(--brand-lime); }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-2">
-            <span class="gasterol text-2xl text-[#D5FF3F]">IPS</span>
-        </a>
-        <div class="hidden md:flex gap-8 gasterol text-xs">
-            <a href="index.html" class="text-[#D5FF3F]">Home</a>
-            <a href="services.html" class="nav-link">R2R & Services</a>
-            <a href="gallery.html" class="nav-link">Wall of Fame</a>
-            <a href="#contact" class="text-[#D5FF3F] border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition">Get Quote</a>
-        </div>
-    </nav>
-
     <main>
-        <section class="relative min-h-[85vh] flex items-center justify-center text-center px-4">
-            <div class="absolute inset-0 hero-pattern z-0"></div>
-            <div class="relative z-10 max-w-5xl">
-                <p class="gasterol text-[#D5FF3F] mb-4 tracking-[0.3em]">Established 2003</p>
-                <h1 class="text-6xl md:text-8xl gasterol leading-none mb-6">
-                    Where Quality Meets <span class="text-[#D5FF3F]">Affordability</span>
+        <section class="relative min-h-screen flex items-center justify-center text-center px-6 hero-pattern">
+            <div class="max-w-4xl z-10">
+                <p class="gasterol text-[#D5FF3F] mb-4 tracking-[0.4em]">Est. 2003</p>
+                <h1 class="text-6xl md:text-8xl gasterol leading-none mb-8">
+                    PERFECTION IN <span class="text-[#D5FF3F]">RESTORATION</span>
                 </h1>
-                <p class="text-xl opacity-80 mb-12 max-w-2xl mx-auto">Now at 7 Bloem St, Goodwood. Premium restorative bodywork for all vehicle makes.</p>
                 
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="https://wa.me/27716871308" class="bg-white text-black px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] transition">WhatsApp Free Quote</a>
-                    <a href="https://www.aurora-repair.com" class="border-2 border-[#D5FF3F] text-[#D5FF3F] px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">R50 Detailed Estimate</a>
+                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-10 py-5 font-bold gasterol flex items-center justify-center gap-2 hover:bg-white transition">
+                        WhatsApp Quote
+                    </a>
+                    <a href="#quote-form" class="border-2 border-[#D5FF3F] text-[#D5FF3F] px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">
+                        Request Quote
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="py-24 bg-[#050505]">
-            <div class="max-w-xl mx-auto px-6">
-                <h2 class="text-4xl gasterol text-[#D5FF3F] mb-4 text-center">Contact Us</h2>
-                <p class="text-center opacity-60 mb-10">Send us a message and we'll get back to you shortly.</p>
-                <form action="#" method="POST" class="space-y-4">
-                    <div style="display:none;"><input type="text" name="checking_field"></div>
-                    <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]">
-                    <input type="email" name="email" placeholder="Email Address" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]">
-                    <textarea name="message" placeholder="Vehicle Model & Repair Needs..." rows="4" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]"></textarea>
-                    <button type="submit" class="w-full bg-[#D5FF3F] text-black py-5 font-bold gasterol">Send Inquiry</button>
+        <section id="quote-form" class="py-24 bg-black border-t border-gray-900">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl gasterol text-[#D5FF3F]">Get a Free, No-Obligation Quote</h2>
+                    <p class="opacity-60 mt-2">Professional assessment for your vehicle restoration.</p>
+                </div>
+
+                <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Full Name *" required class="form-input">
+                        <input type="text" placeholder="Phone Number *" required class="form-input">
+                        <input type="text" placeholder="Email Address" class="form-input">
+                    </div>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Vehicle Make *" required class="form-input">
+                        <input type="text" placeholder="Vehicle Model *" required class="form-input">
+                        <input type="text" placeholder="Vehicle Year *" required class="form-input">
+                    </div>
+                    <div class="space-y-4">
+                        <textarea placeholder="Damage Description *" rows="4" required class="form-input"></textarea>
+                        <div class="flex items-center gap-4 text-sm opacity-70 px-2">
+                            <label><input type="radio" name="type" value="private" checked> Private / Cash</label>
+                            <label><input type="radio" name="type" value="insurance"> Insurance Claim</label>
+                        </div>
+                        <button type="submit" class="w-full bg-[#D5FF3F] text-black py-4 font-bold gasterol uppercase hover:bg-white transition">
+                            Send Quote Request
+                        </button>
+                    </div>
                 </form>
+
+                <div class="mt-20 p-8 border border-gray-800 bg-[#050505] rounded-sm flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div>
+                        <h3 class="text-xl gasterol text-[#D5FF3F]">Need a 2nd quote for insurance?</h3>
+                        <p class="opacity-60 text-sm">Download our expert quoting system for professional estimates.</p>
+                    </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank">
+                        <img src="assets/img/google-play-badge.png" alt="Get it on Google Play" class="h-12">
+                    </a>
+                </div>
             </div>
         </section>
-    </main>
 
-    <footer class="bg-[#050505] border-t border-gray-900 pt-16 pb-8 px-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-sm">
-            <div class="col-span-1 md:col-span-2">
-                <h3 class="gasterol text-[#D5FF3F] text-xl mb-4">International Panel Shop</h3>
-                <p class="opacity-60 mb-4 max-w-sm">Leading Independent Service Provider (ISP) specializing in professional auto-body restoration.</p>
-                <p class="font-bold">7 Bloem Street, Townsend Estate, Goodwood, 7460</p>
-            </div>
-            <div>
-                <h4 class="gasterol text-xs mb-4 opacity-40">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="services.html" class="hover:text-[#D5FF3F]">Right to Repair</a></li>
-                    <li><a href="legal.html" class="hover:text-[#D5FF3F]">Legal Terms</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="gasterol text-xs mb-4 opacity-40">Connect</h4>
-                <p>021 801 8007</p>
-                <a href="https://wa.me/27716871308" class="text-[#D5FF3F] font-bold">WhatsApp Us</a>
-            </div>
-        </div>
-        <div class="border-t border-gray-900 pt-8 flex justify-between items-center opacity-30 text-[9px] uppercase tracking-widest">
-            <p>&copy; 2026 IPS Goodwood</p>
-            <p>Lat: -33.9056 | Long: 18.5472</p>
-        </div>
-    </footer>
+        <section class="py-20 bg-[#050505]">
+            <div id="google-reviews" class="max-w-6xl mx-auto px-6">
+                </div>
+        </section>
+    </main>
 
     <script src="/fair-discovery/engagement.js" defer></script>
 </body>
