@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPS | Quality Meets Affordability - Panel Beating Goodwood</title>
-    <meta name="description" content="International Panel Shop: Expert panel beating and spray painting in Goodwood. We support Right to Repair. Get a free WhatsApp quote or a detailed R50 estimate.">
+    <title>International Panel Shop | Quality Meets Affordability Goodwood</title>
+    <meta name="description" content="Expert panel beating and spray painting in Goodwood, Cape Town. Supporting Right to Repair since 2003. Get a 2nd quote or a free WhatsApp estimate.">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutoRepair",
       "name": "International Panel Shop",
-      "image": "https://www.intpanelshop.co.za/assets/img/logos/main-logo.png",
+      "image": "https://www.intpanelshop.co.za/assets/img/logos/1.jpg",
       "url": "https://www.intpanelshop.co.za",
       "telephone": "+27218018007",
       "address": {
@@ -26,66 +26,90 @@
         "latitude": "-33.9056",
         "longitude": "18.5472"
       },
-      "openingHours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00",
-      "priceRange": "$$",
-      "description": "Family-owned panel shop since 2003 specializing in restorative bodywork and high-end paint finishes."
+      "openingHours": "Mo-Fr 08:00-17:00, Sa 09:00-12:00"
     }
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @font-face { font-family: 'Gasterol'; src: url('assets/fonts/Gasterol.woff2'); }
         :root { --brand-lime: #D5FF3F; --brand-black: #000000; }
-        body { background: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; }
-        .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; }
+        body { background-color: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; }
+        .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
         .hero-pattern { background-image: url('assets/img/patterns/2.jpg'); background-size: cover; opacity: 0.15; }
+        .nav-link:hover { color: var(--brand-lime); }
     </style>
 </head>
 <body>
 
-    <header class="p-6 flex justify-between items-center relative z-20">
-        <img src="assets/img/logos/1.jpg" alt="IPS Logo" width="180" height="60" fetchpriority="high">
-        <nav class="hidden md:flex gap-8 gasterol tracking-widest text-sm">
+    <nav class="sticky top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="gasterol text-2xl text-[#D5FF3F]">IPS</span>
+        </a>
+        <div class="hidden md:flex gap-8 gasterol text-xs">
             <a href="index.html" class="text-[#D5FF3F]">Home</a>
-            <a href="services.html" class="hover:text-[#D5FF3F]">R2R & Services</a>
-            <a href="gallery.html" class="hover:text-[#D5FF3F]">Wall of Fame</a>
-        </nav>
-    </header>
+            <a href="services.html" class="nav-link">R2R & Services</a>
+            <a href="gallery.html" class="nav-link">Wall of Fame</a>
+            <a href="#contact" class="text-[#D5FF3F] border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition">Get Quote</a>
+        </div>
+    </nav>
 
     <main>
-        <section class="relative min-h-[80vh] flex items-center justify-center text-center px-4">
+        <section class="relative min-h-[85vh] flex items-center justify-center text-center px-4">
             <div class="absolute inset-0 hero-pattern z-0"></div>
-            <div class="relative z-10 max-w-4xl">
-                <h1 class="text-5xl md:text-8xl gasterol leading-none mb-6">
+            <div class="relative z-10 max-w-5xl">
+                <p class="gasterol text-[#D5FF3F] mb-4 tracking-[0.3em]">Established 2003</p>
+                <h1 class="text-6xl md:text-8xl gasterol leading-none mb-6">
                     Where Quality Meets <span class="text-[#D5FF3F]">Affordability</span>
                 </h1>
-                <p class="text-xl opacity-80 mb-10">Restoring vehicles in Cape Town since 2003. Now at 7 Bloem St, Goodwood.</p>
+                <p class="text-xl opacity-80 mb-12 max-w-2xl mx-auto">Now at 7 Bloem St, Goodwood. Premium restorative bodywork for all vehicle makes.</p>
                 
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/27716871308" class="bg-white text-black px-8 py-4 font-bold gasterol hover:bg-[#D5FF3F] transition">WhatsApp Free Quote</a>
-                    <a href="https://www.aurora-repair.com" class="border-2 border-[#D5FF3F] text-[#D5FF3F] px-8 py-4 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">R50 Detailed Estimate</a>
+                <div class="flex flex-col md:flex-row gap-6 justify-center">
+                    <a href="https://wa.me/27716871308" class="bg-white text-black px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] transition">WhatsApp Free Quote</a>
+                    <a href="https://www.aurora-repair.com" class="border-2 border-[#D5FF3F] text-[#D5FF3F] px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">R50 Detailed Estimate</a>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 bg-[#0a0a0a]" id="contact">
-            <div class="max-w-2xl mx-auto px-6">
-                <h2 class="text-4xl gasterol text-[#D5FF3F] mb-8">Direct Inquiry</h2>
-                <form action="YOUR_BACKEND_URL" method="POST" class="space-y-4">
-                    <div style="display:none;">
-                        <input type="text" name="checking_field">
-                    </div>
-                    
+        <section id="contact" class="py-24 bg-[#050505]">
+            <div class="max-w-xl mx-auto px-6">
+                <h2 class="text-4xl gasterol text-[#D5FF3F] mb-4 text-center">Contact Us</h2>
+                <p class="text-center opacity-60 mb-10">Send us a message and we'll get back to you shortly.</p>
+                <form action="#" method="POST" class="space-y-4">
+                    <div style="display:none;"><input type="text" name="checking_field"></div>
                     <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]">
                     <input type="email" name="email" placeholder="Email Address" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]">
-                    <textarea name="message" placeholder="Vehicle make, model, and damage description..." rows="4" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]"></textarea>
-                    <button type="submit" class="w-full bg-[#D5FF3F] text-black py-4 font-bold gasterol uppercase">Send Request</button>
+                    <textarea name="message" placeholder="Vehicle Model & Repair Needs..." rows="4" required class="w-full p-4 bg-black border border-gray-800 outline-none focus:border-[#D5FF3F]"></textarea>
+                    <button type="submit" class="w-full bg-[#D5FF3F] text-black py-5 font-bold gasterol">Send Inquiry</button>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="p-10 border-t border-gray-900 text-center opacity-60 text-sm">
-        <p>&copy; 2026 International Panel Shop. 7 Bloem Street, Goodwood. Supporting Right to Repair.</p>
+    <footer class="bg-[#050505] border-t border-gray-900 pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 text-sm">
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="gasterol text-[#D5FF3F] text-xl mb-4">International Panel Shop</h3>
+                <p class="opacity-60 mb-4 max-w-sm">Leading Independent Service Provider (ISP) specializing in professional auto-body restoration.</p>
+                <p class="font-bold">7 Bloem Street, Townsend Estate, Goodwood, 7460</p>
+            </div>
+            <div>
+                <h4 class="gasterol text-xs mb-4 opacity-40">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="services.html" class="hover:text-[#D5FF3F]">Right to Repair</a></li>
+                    <li><a href="legal.html" class="hover:text-[#D5FF3F]">Legal Terms</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="gasterol text-xs mb-4 opacity-40">Connect</h4>
+                <p>021 801 8007</p>
+                <a href="https://wa.me/27716871308" class="text-[#D5FF3F] font-bold">WhatsApp Us</a>
+            </div>
+        </div>
+        <div class="border-t border-gray-900 pt-8 flex justify-between items-center opacity-30 text-[9px] uppercase tracking-widest">
+            <p>&copy; 2026 IPS Goodwood</p>
+            <p>Lat: -33.9056 | Long: 18.5472</p>
+        </div>
     </footer>
 
     <script src="/fair-discovery/engagement.js" defer></script>
