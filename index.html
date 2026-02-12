@@ -64,6 +64,37 @@
         }
         .hero-text-shadow { text-shadow: 2px 2px 15px rgba(0,0,0,0.9); }
 
+        /* Spray-on / Sand Animation */
+        .spray-animate {
+            animation: spray-in 2.5s ease-out forwards;
+            filter: blur(5px);
+            opacity: 0;
+            mask-image: linear-gradient(to right, transparent, black, transparent);
+            mask-size: 300% 100%;
+            mask-position: 100% 0;
+        }
+
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.2s; }
+
+        @keyframes spray-in {
+            0% {
+                filter: blur(10px) grayscale(1);
+                opacity: 0;
+                mask-position: 100% 0;
+                transform: scale(0.98);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                filter: blur(0px) grayscale(0);
+                opacity: 1;
+                mask-position: 0% 0;
+                transform: scale(1);
+            }
+        }
+
         .form-input {
             background: #0a0a0a;
             border: 2px solid #444;
@@ -105,10 +136,10 @@
     <main>
         <section class="hero-section">
             <div class="max-w-5xl z-10 px-6 hero-text-shadow">
-                <img src="assets/img/logos/logoips.png" alt="IPS Logo" class="h-64 mx-auto mb-10">
-                <h2 class="gasterol text-4xl md:text-5xl mb-2">Where Quality Meets</h2>
-                <h1 class="gasterol text-6xl md:text-8xl brand-lime-text mb-8">Affordability</h1>
-                <p class="text-2xl md:text-3xl opacity-100 max-w-4xl mx-auto mb-10 leading-relaxed font-bold">
+                <img src="assets/img/logos/logoips.png" alt="IPS Logo" class="h-64 mx-auto mb-10 spray-animate">
+                <h2 class="gasterol text-4xl md:text-5xl mb-2 spray-animate delay-1">Where Quality Meets</h2>
+                <h1 class="gasterol text-6xl md:text-8xl brand-lime-text mb-8 spray-animate delay-2">Affordability</h1>
+                <p class="text-2xl md:text-3xl opacity-100 max-w-4xl mx-auto mb-10 leading-relaxed font-bold spray-animate delay-2">
                     International Panel Shop has more than 20yrs experience in the industry of auto body repairs, with many satisfied customers. Serving Goodwood, Gardens, Atlantic Seaboard, Panorama, and Durbanville.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
