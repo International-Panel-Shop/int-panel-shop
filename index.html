@@ -3,24 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPS | International Panel Shop Goodwood</title>
+    <title>International Panel Shop | Quality Meets Affordability Goodwood</title>
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "International Panel Shop",
+      "image": "assets/img/logos/1.jpg",
+      "url": "https://www.intpanelshop.co.za",
+      "telephone": "+27218018007",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7 Bloem Street, Townsend Estate",
+        "addressLocality": "Goodwood",
+        "postalCode": "7460",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-33.9056",
+        "longitude": "18.5472"
+      }
+    }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         @font-face { font-family: 'Gasterol'; src: url('assets/fonts/Gasterol.woff2'); }
         :root { --brand-lime: #D5FF3F; --brand-black: #000000; }
-        body { background: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; }
+        body { background-color: var(--brand-black); color: white; font-family: 'Avenir', sans-serif; margin: 0; }
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
+        .brand-lime-text { color: var(--brand-lime); }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--brand-lime); }
         
-        /* Hero Pattern Background using your Brand Identity Pattern */
+        /* Hero Pattern Background using Brand Identity Pattern */
         .hero-pattern { 
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('assets/img/patterns/brand-pattern-lime.jpg'); 
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('assets/img/patterns/Brand-Identity-Patterns-IPS-_page-0010.jpg'); 
             background-size: cover;
             background-position: center;
         }
-        
+
         .form-input {
             background: #0a0a0a;
             border: 1px solid #333;
@@ -34,19 +60,34 @@
 </head>
 <body>
 
+    <nav class="sticky top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-gray-900 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+            <span class="gasterol text-2xl brand-lime-text">IPS</span>
+            <span class="hidden md:block gasterol text-sm tracking-tighter opacity-70">International Panel Shop</span>
+        </a>
+
+        <div class="hidden md:flex gap-8 gasterol text-xs items-center">
+            <a href="index.html" class="brand-lime-text">Home</a>
+            <a href="services.html" class="nav-link">R2R & Services</a>
+            <a href="gallery.html" class="nav-link">Wall of Fame</a>
+            <a href="https://sure-drive-9a8c9.web.app/" class="nav-link">Sure Drive</a>
+            <a href="#quote-form" class="brand-lime-text border border-[#D5FF3F] px-4 py-1 hover:bg-[#D5FF3F] hover:text-black transition uppercase">Request Quote</a>
+        </div>
+    </nav>
+
     <main>
-        <section class="relative min-h-screen flex items-center justify-center text-center px-6 hero-pattern">
+        <section class="relative min-h-[90vh] flex items-center justify-center text-center px-6 hero-pattern">
             <div class="max-w-4xl z-10">
-                <p class="gasterol text-[#D5FF3F] mb-4 tracking-[0.4em]">Est. 2003</p>
+                <p class="gasterol brand-lime-text mb-4 tracking-[0.4em] text-sm">Est. 2003</p>
                 <h1 class="text-6xl md:text-8xl gasterol leading-none mb-8">
-                    PERFECTION IN <span class="text-[#D5FF3F]">RESTORATION</span>
+                    PERFECTION IN <br><span class="brand-lime-text">RESTORATION</span>
                 </h1>
                 
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
-                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-10 py-5 font-bold gasterol flex items-center justify-center gap-2 hover:bg-white transition">
+                    <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-10 py-5 font-bold gasterol hover:bg-white transition">
                         WhatsApp Quote
                     </a>
-                    <a href="#quote-form" class="border-2 border-[#D5FF3F] text-[#D5FF3F] px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">
+                    <a href="#quote-form" class="border-2 border-[#D5FF3F] brand-lime-text px-10 py-5 font-bold gasterol hover:bg-[#D5FF3F] hover:text-black transition">
                         Request Quote
                     </a>
                 </div>
@@ -56,20 +97,21 @@
         <section id="quote-form" class="py-24 bg-black border-t border-gray-900">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl gasterol text-[#D5FF3F]">Get a Free, No-Obligation Quote</h2>
+                    <h2 class="text-4xl gasterol brand-lime-text">Get a Free, No-Obligation Quote</h2>
                     <p class="opacity-60 mt-2">Professional assessment for your vehicle restoration.</p>
                 </div>
 
                 <form class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div style="display:none;"><input type="text" name="checking_field"></div>
                     <div class="space-y-4">
                         <input type="text" placeholder="Full Name *" required class="form-input">
                         <input type="text" placeholder="Phone Number *" required class="form-input">
-                        <input type="text" placeholder="Email Address" class="form-input">
+                        <input type="text" placeholder="Vehicle Make *" required class="form-input">
                     </div>
                     <div class="space-y-4">
-                        <input type="text" placeholder="Vehicle Make *" required class="form-input">
                         <input type="text" placeholder="Vehicle Model *" required class="form-input">
                         <input type="text" placeholder="Vehicle Year *" required class="form-input">
+                        <input type="email" placeholder="Email Address" class="form-input">
                     </div>
                     <div class="space-y-4">
                         <textarea placeholder="Damage Description *" rows="4" required class="form-input"></textarea>
@@ -83,14 +125,23 @@
                     </div>
                 </form>
 
-                <div class="mt-20 p-8 border border-gray-800 bg-[#050505] rounded-sm flex flex-col md:flex-row items-center justify-between gap-8">
-                    <div>
-                        <h3 class="text-xl gasterol text-[#D5FF3F]">Need a 2nd quote for insurance?</h3>
-                        <p class="opacity-60 text-sm">Download our expert quoting system for professional estimates.</p>
+                <div class="mt-20 space-y-4">
+                    <div class="text-center mb-6">
+                        <p class="opacity-80 mb-2">Want to know more about Sure Drive?</p>
+                        <a href="https://sure-drive-9a8c9.web.app/" class="brand-lime-text gasterol text-sm underline flex items-center justify-center gap-2">
+                            <img src="assets/img/logos/suredrive.jpg" alt="Sure Drive" class="h-6 inline-block"> Follow the link
+                        </a>
                     </div>
-                    <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank">
-                        <img src="assets/img/google-play-badge.png" alt="Get it on Google Play" class="h-12">
-                    </a>
+
+                    <div class="p-8 border border-gray-800 bg-[#050505] rounded-sm flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div>
+                            <h3 class="text-xl gasterol brand-lime-text">Need a 2nd quote for insurance?</h3>
+                            <p class="opacity-60 text-sm">Download our expert quoting system for professional estimates.</p>
+                        </div>
+                        <a href="https://play.google.com/store/apps/details?id=com.aurora.repair&hl=en" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" class="h-12">
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -100,6 +151,48 @@
                 </div>
         </section>
     </main>
+
+    <footer class="bg-[#050505] border-t border-gray-900 pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            
+            <div class="col-span-1 md:col-span-2">
+                <h3 class="gasterol brand-lime-text text-xl mb-4">International Panel Shop</h3>
+                <p class="opacity-60 text-sm mb-4 max-w-sm">
+                    Where Quality Meets Affordability. Expert panel beating and spray painting since 2003. [cite: 1, 7]
+                </p>
+                <p class="text-sm font-bold">
+                    7 Bloem Street, Townsend Estate,<br>
+                    Goodwood, Cape Town, 7460
+                </p>
+            </div>
+
+            <div>
+                <h4 class="gasterol text-xs mb-4 opacity-40 uppercase">Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="services.html" class="hover:text-[#D5FF3F]">Right to Repair</a></li>
+                    <li><a href="gallery.html" class="hover:text-[#D5FF3F]">Wall of Fame</a></li>
+                    <li><a href="https://sure-drive-9a8c9.web.app/" class="hover:text-[#D5FF3F]">Sure Drive</a></li>
+                    <li><a href="legal.html" class="hover:text-[#D5FF3F]">Terms & Conditions</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="gasterol text-xs mb-4 opacity-40 uppercase">Contact</h4>
+                <p class="text-sm mb-2">021 801 8007 [cite: 118]</p>
+                <p class="text-sm mb-4">info@internationalpanelshop.co.za [cite: 119]</p>
+                <div class="flex gap-4">
+                    <a href="https://wa.me/27716871308" class="brand-lime-text hover:text-white transition">
+                        <span class="text-xs font-bold gasterol tracking-widest">WHATSAPP</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 opacity-40 text-[10px] tracking-widest uppercase">
+            <p>&copy; 2026 IPS Goodwood. All Rights Reserved.</p>
+            <p>Lat: -33.9056 | Long: 18.5472</p>
+        </div>
+    </footer>
 
     <script src="/fair-discovery/engagement.js" defer></script>
 </body>
