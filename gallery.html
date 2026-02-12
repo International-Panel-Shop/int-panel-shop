@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall of Fame | IPS Before & After Gallery</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "IPS Vehicle Restoration Gallery",
+      "description": "Before and after photos of panel beating and spray painting excellence in Goodwood.",
+      "contentLocation": "Goodwood, Cape Town"
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --brand-lime: #D5FF3F; }
+        body { background: #000000; color: white; font-family: 'Avenir', sans-serif; }
+        .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; }
+        .grid-item { border: 1px solid #1a1a1a; overflow: hidden; transition: 0.3s; }
+        .grid-item:hover { border-color: var(--brand-lime); }
+    </style>
+</head>
+<body>
+
+    <header class="p-6 flex justify-between items-center">
+        <a href="index.html" class="text-2xl gasterol text-[#D5FF3F]">IPS</a>
+        <nav class="flex gap-6 gasterol text-xs tracking-widest">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+        </nav>
+    </header>
+
+    <main class="py-12 px-6">
+        <h1 class="text-5xl gasterol mb-2">Wall of <span class="text-[#D5FF3F]">Fame</span></h1>
+        <p class="opacity-60 mb-12">Real results for real customers. From minor dents to major restorations.</p>
+
+        <h2 class="text-xl gasterol text-[#D5FF3F] mb-6">Customer Stories</h2>
+        <div class="grid md:grid-cols-2 gap-6 mb-20">
+            <div class="grid-item aspect-video bg-gray-900">
+                <video controls preload="none" class="w-full h-full object-cover" poster="assets/img/gallery/video-1-thumb.jpg">
+                    <source src="assets/img/gallery/testimonial-1.mp4" type="video/mp4">
+                </video>
+            </div>
+            </div>
+
+        <h2 class="text-xl gasterol text-[#D5FF3F] mb-6">Before & After</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid-item group relative">
+                <img src="assets/img/gallery/repair-1-after.jpg" alt="Restored vehicle" class="w-full grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute bottom-4 left-4 bg-[#D5FF3F] text-black text-[10px] px-2 py-1 font-bold">BMW 3 SERIES REPAIR</div>
+            </div>
+            </div>
+    </main>
+
+    <script src="/fair-discovery/engagement.js" defer></script>
+</body>
+</html>
