@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Panel Shop | Where Quality Meets Affordability</title>
+    <title>International Panel Shop | Quality Meets Affordability</title>
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "International Panel Shop",
+      "image": "assets/img/logos/1.jpg",
+      "@id": "https://www.intpanelshop.co.za",
+      "url": "https://www.intpanelshop.co.za",
+      "telephone": "+27218018007",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "7 Bloem Street, Townsend Estate",
+        "addressLocality": "Goodwood",
+        "addressRegion": "Western Cape",
+        "postalCode": "7460",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-33.9056",
+        "longitude": "18.5472"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Goodwood"},
+        {"@type": "City", "name": "Gardens"},
+        {"@type": "City", "name": "Atlantic Seaboard"},
+        {"@type": "City", "name": "Panorama"},
+        {"@type": "City", "name": "Durbanville"},
+        {"@type": "GeoCircle", "geoMidpoint": {"@type": "GeoCoordinates", "latitude": "-33.9056", "longitude": "18.5472"}, "geoRadius": "40000"}
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,7 +56,6 @@
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
         .brand-lime-text { color: var(--brand-lime); }
         
-        /* Lightened Hero: 35-45% Opacity */
         .hero-section { 
             position: relative;
             min-height: 95vh;
@@ -45,9 +83,10 @@
         .upload-box {
             border: 2px dashed #666;
             background: #050505;
-            padding: 2rem;
+            padding: 2.5rem;
             cursor: pointer;
             transition: 0.3s;
+            position: relative;
         }
         .upload-box:hover { border-color: var(--brand-lime); }
     </style>
@@ -74,7 +113,7 @@
                 <h2 class="gasterol text-4xl md:text-5xl mb-2">Where Quality Meets</h2>
                 <h1 class="gasterol text-6xl md:text-8xl brand-lime-text mb-8">Affordability</h1>
                 <p class="text-2xl md:text-3xl opacity-100 max-w-4xl mx-auto mb-10 leading-relaxed font-bold">
-                    International Panel Shop has more than 20yrs experience in auto body repairs. From private to insurance quotes, we are just one click away.
+                    International Panel Shop has more than 20yrs experience in auto body repairs. Serving Goodwood, Gardens, and the Atlantic Seaboard.
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 justify-center">
                     <a href="https://wa.me/27716871308" class="bg-[#D5FF3F] text-black px-12 py-6 font-bold gasterol text-2xl">WhatsApp Quote</a>
@@ -100,8 +139,8 @@
 
                     <div class="p-8 border-2 border-[#D5FF3F] bg-[#050505] text-center mt-12">
                         <img src="assets/img/suredrive.jpg" alt="Sure Drive" class="h-12 mx-auto mb-4">
-                        <h3 class="text-2xl gasterol brand-lime-text mb-4">Pre-Pay Your Repairs.</h3>
-                        <p class="text-lg opacity-90 mb-6">Convert cash into secure SureBucks, lock in repair quality, and drive stress-free.</p>
+                        <h2 class="text-2xl gasterol brand-lime-text mb-4">Pre-Pay Your Repairs. Protect Your Asset.</h2>
+                        <p class="text-lg opacity-90 mb-6">Avoid unexpected bills. Convert cash into SureBucks and lock in quality.</p>
                         <a href="https://sure-drive-9a8c9.web.app/" class="brand-lime-text underline gasterol text-lg">Follow the link</a>
                     </div>
                 </div>
@@ -112,19 +151,19 @@
                         <input type="text" name="name" placeholder="Full Name *" required class="form-input">
                         <input type="text" name="phone" placeholder="Phone Number *" required class="form-input">
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="text" name="make" placeholder="Make *" required class="form-input">
+                            <input type="text" name="make" placeholder="Vehicle Make *" required class="form-input">
                             <input type="text" name="model" placeholder="Model *" required class="form-input">
                         </div>
                         <textarea name="damage" placeholder="Damage Description *" rows="4" required class="form-input"></textarea>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="upload-box relative">
-                                <input type="file" name="vehicle_photos[]" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10">
-                                <p class="text-center font-bold text-sm uppercase brand-lime-text">Upload Photos (Max 4)</p>
+                            <div class="upload-box">
+                                <input type="file" name="vehicle_photos[]" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10" id="img-input">
+                                <p class="text-center font-bold text-sm uppercase brand-lime-text" id="img-label">Upload Photos (Max 4)</p>
                             </div>
-                            <div class="upload-box relative border-gray-700">
-                                <input type="file" name="existing_quote" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10">
-                                <p class="text-center font-bold text-sm opacity-50 uppercase">Upload Existing Quote</p>
+                            <div class="upload-box border-gray-700">
+                                <input type="file" name="existing_quote" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10" id="quote-input">
+                                <p class="text-center font-bold text-sm opacity-50 uppercase" id="quote-label">Upload Existing Quote</p>
                             </div>
                         </div>
                         <button type="submit" class="w-full bg-[#D5FF3F] text-black py-6 font-bold gasterol text-2xl shadow-xl">Send Request</button>
@@ -145,7 +184,7 @@
                 <div class="p-8 bg-black border border-gray-800 flex flex-col justify-between">
                     <div>
                         <h3 class="text-3xl gasterol brand-lime-text mb-6">Save a write off</h3>
-                        <p class="text-lg opacity-90 mb-6">This BMW was going to be written off. We repaired parts others would replace, saving significant costs.</p>
+                        <p class="text-lg opacity-90 mb-6">This BMW was going to be written off. We saved it by repairing parts others would replace.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div><p class="text-xs gasterol brand-lime-text mb-2">Before</p><img src="assets/img/bmwbefore.jpg" alt="Before" class="border border-gray-800"></div>
@@ -168,7 +207,10 @@
             </div>
             
             <div class="w-full h-[500px] border-y border-gray-900">
-                <iframe src="http://googleusercontent.com/maps.google.com/3" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3311.393457544062!2d18.544625076646872!3d-33.90526061917631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5c5666f7f329%3A0xc6822458e26c4526!2sInternational%20Panel%20Shop%20-%20IPS!5e0!3m2!1sen!2sza!4v1707765000000!5m2!1sen!2sza" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </section>
     </main>
@@ -196,15 +238,26 @@
             <div>
                 <h4 class="gasterol opacity-40 mb-6 uppercase tracking-widest text-xs">Internal</h4>
                 <ul class="space-y-4 text-sm opacity-80">
-                    <li><a href="checkin/index.php" class="hover:text-[#D5FF3F]">Vehicle Check-in</a></li>
-                    <li><a href="release/index.php" class="hover:text-[#D5FF3F]">Vehicle Release</a></li>
+                    <li><a href="checkin/index.php">Vehicle Check-in</a></li>
+                    <li><a href="release/index.php">Vehicle Release</a></li>
                 </ul>
             </div>
         </div>
-        <div class="mt-12 border-t border-gray-900 pt-10 text-[11px] opacity-40 tracking-widest uppercase flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="mt-12 border-t border-gray-900 pt-10 text-[11px] opacity-40 tracking-widest uppercase flex flex-col md:flex-row justify-between items-center">
             <p>© 2026 IPS Goodwood. All Rights Reserved.</p>
-            <p><a href="http://www.intpanelshop.co.za" class="hover:text-[#D5FF3F]">www.intpanelshop.co.za</a> | Lat: -33.9056 | Long: 18.5472</p>
+            <p><a href="http://www.intpanelshop.co.za">www.intpanelshop.co.za</a> | Lat: -33.9056 | Long: 18.5472</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('img-input').onchange = function() {
+            document.getElementById('img-label').innerHTML = this.files.length + " PHOTOS SELECTED";
+            document.getElementById('img-label').style.color = "#D5FF3F";
+        };
+        document.getElementById('quote-input').onchange = function() {
+            document.getElementById('quote-label').innerHTML = "QUOTE ATTACHED";
+            document.getElementById('quote-label').style.color = "#D5FF3F";
+        };
+    </script>
 </body>
 </html>
