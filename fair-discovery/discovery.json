@@ -1,0 +1,140 @@
+{
+    "site": "intpanelshop.co.za",
+    "category": "Auto",
+    "description": "Expert panel beating and spray painting in Cape Town.",
+    "whatsapp": "27821234567",
+    "location": "Cape Town",
+    "visitors": {
+        "current_week_start": "2026-02-07",
+        "current_count": 20,
+        "history": [
+            {
+                "date": "2025-09-20",
+                "count": 55
+            },
+            {
+                "date": "2025-09-27",
+                "count": 80
+            },
+            {
+                "date": "2025-10-04",
+                "count": 40
+            },
+            {
+                "date": "2025-10-11",
+                "count": 95
+            },
+            {
+                "date": "2025-10-18",
+                "count": 110
+            },
+            {
+                "date": "2025-10-25",
+                "count": 105
+            },
+            {
+                "date": "2025-11-01",
+                "count": 120
+            },
+            {
+                "date": "2025-11-08",
+                "count": 135
+            },
+            {
+                "date": "2025-11-15",
+                "count": 90
+            },
+            {
+                "date": "2025-11-22",
+                "count": 85
+            },
+            {
+                "date": "2025-11-29",
+                "count": 140
+            },
+            {
+                "date": "2025-12-06",
+                "count": 155
+            },
+            {
+                "date": "2025-12-13",
+                "count": 130
+            },
+            {
+                "date": "2025-12-20",
+                "count": 60
+            },
+            {
+                "date": "2025-12-27",
+                "count": 75
+            },
+            {
+                "date": "2026-01-03",
+                "count": 26
+            },
+            {
+                "date": "2026-01-10",
+                "count": 70
+            },
+            {
+                "date": "2026-01-17",
+                "count": 80
+            },
+            {
+                "date": "2026-01-24",
+                "count": 219
+            },
+            {
+                "date": "2026-01-31",
+                "count": 140
+            }
+        ]
+    },
+    "blocked_ips": [
+        "173.252.127.32",
+        "66.249.79.193",
+        "66.249.79.192",
+        "69.171.231.8",
+        "66.249.79.206",
+        "105.185.154.220",
+        "69.171.234.8",
+        "40.77.167.77",
+        "41.193.213.180",
+        "173.252.127.2",
+        "69.63.184.10"
+    ],
+    "pages": [
+        {
+            "url": "\/",
+            "score": 2926625
+        },
+        {
+            "url": "\/index.html",
+            "score": 636843115
+        },
+        {
+            "url": "\/international-panel-shop-areas-of-operation-in-cape-town.html",
+            "score": 166104
+        },
+        {
+            "url": "\/int-panel-shop-gardens-cape-town.html",
+            "score": 22
+        },
+        {
+            "url": "\/page7.html",
+            "score": 62663537
+        },
+        {
+            "url": "\/insurance.html",
+            "score": 42095
+        },
+        {
+            "url": "\/int-panel-shop-atlantic-seaboard.html",
+            "score": 6
+        },
+        {
+            "url": "\/lancespanelandspray.html",
+            "score": 23363
+        }
+    ]
+}

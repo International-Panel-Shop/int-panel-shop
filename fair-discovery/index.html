@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intpanel Shop Discovery Dashboard</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f4f6f9; padding: 40px; color: #333; max-width: 950px; margin: 0 auto; }
+    h1 { color: #1a73e8; font-size: 2.2em; display: flex; align-items: center; gap: 10px; margin-bottom: 25px;}
+    h1 span { font-size: 1.2rem; font-weight: normal; color: #555; }
+
+    /* 1. VISITOR STATS BOXES */
+    .visitor-panel {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .v-card { text-align: center; border-right: 1px solid #eee; }
+    .v-card:last-child { border-right: none; }
+    .v-card h3 { margin: 0 0 5px 0; font-size: 0.75em; text-transform: uppercase; color: #888; letter-spacing: 0.5px; }
+    .v-card .count { font-size: 1.8em; font-weight: bold; color: #333; }
+    .v-card.active .count { color: #1a73e8; }
+    .v-card.active h3 { color: #1a73e8; font-weight: bold; }
+
+    /* 2. GRAPH CONTAINER */
+    .graph-panel {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        margin-bottom: 30px;
+    }
+    .graph-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    .graph-header h2 { margin: 0; font-size: 1.1em; color: #555; }
+    
+    .live-badge { 
+        background: #e6f4ea; color: #1e8e3e; 
+        padding: 5px 12px; border-radius: 20px; 
+        font-weight: bold; font-size: 0.9em;
+        border: 1px solid #ceead6;
+    }
+
+    /* 3. TABLE STYLES */
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    th, td { padding: 12px; border-bottom: 1px solid #e0e0e0; text-align: left; }
+    th { background: #1a73e8; color: white; }
+    .bar { background: #e0e7ff; border-radius: 6px; height: 10px; margin-top: 6px; }
+    .fill { background: #1a73e8; height: 100%; }
+    
+    #controls { display: flex; justify-content: space-between; margin-top: 25px; }
+    #footer { text-align: center; margin-top: 40px; color: #777; font-size: 0.9em; }
+    a { color: #1a73e8; text-decoration: none; }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+        .visitor-panel { grid-template-columns: 1fr 1fr; }
+        .v-card { border-bottom: 1px solid #eee; border-right: none; padding-bottom: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌍 Intpanel Shop <span>Discovery & Traffic</span></h1>
+  
+  <div class="visitor-panel">
+      <div class="v-card active">
+          <h3>Current Week (Live)</h3>
+          <div class="count" id="w1">--</div>
+      </div>
+      <div class="v-card">
+          <h3>Last Week</h3>
+          <div class="count" id="w2">--</div>
+      </div>
+      <div class="v-card">
+          <h3>2 Weeks Ago</h3>
+          <div class="count" id="w3">--</div>
+      </div>
+      <div class="v-card">
+          <h3>3 Weeks Ago</h3>
+          <div class="count" id="w4">--</div>
+      </div>
+  </div>
+
+  <div class="graph-panel">
+      <div class="graph-header">
+          <h2>📊 20-Week Visitor History (Sat - Fri)</h2>
+          <div class="live-badge">Live: <span id="live-count-badge">--</span></div>
+      </div>
+      <canvas id="visitorChart" style="max-height: 350px;"></canvas>
+  </div>
+
+  <div id="controls">
+    <span><strong>🔥 Top Engaging Pages</strong></span>
+    <label><input type="checkbox" id="autoRefresh"> Auto-refresh (30s)</label>
+  </div>
+
+  <table id="results">
+    <tr><th>Page</th><th>Engagement Score</th></tr>
+    <tr><td colspan="2" style="text-align:center;">Loading data...</td></tr>
+  </table>
+
+  <div id="footer">
+    <p>Powered by <strong>Fair Discovery AI</strong><br><a href="/fair-discovery/discovery.json" target="_blank">View JSON Feed</a></p>
+  </div>
+
+  <script>
+    Chart.register(ChartDataLabels); 
+
+    const visitorCtx = document.getElementById("visitorChart").getContext("2d");
+    let visitorChartInstance;
+    let refreshInterval;
+
+    async function loadData() {
+      try {
+        // --- NEW: FORCE UPDATE CHECK ---
+        // This pings the server to ensure the "Saturday Rotation" happens 
+        // right now, even if you are the first visitor of the day.
+        await fetch("/fair-discovery/record.php", { 
+            method: "POST", 
+            body: JSON.stringify({ type: "check" }) 
+        });
+        // -------------------------------
+
+        const res = await fetch("/fair-discovery/discovery.json?t=" + Date.now());
+        const data = await res.json();
+        
+        // --- A. POPULATE 4-WEEK BOXES ---
+        if (data.visitors && data.visitors.history) {
+            const hist = data.visitors.history;
+            const currentCount = data.visitors.current_count;
+
+            document.getElementById('w1').innerText = currentCount;
+            document.getElementById('live-count-badge').innerText = currentCount;
+            document.getElementById('w2').innerText = hist.length > 0 ? hist[hist.length - 1].count : 0;
+            document.getElementById('w3').innerText = hist.length > 1 ? hist[hist.length - 2].count : 0;
+            document.getElementById('w4').innerText = hist.length > 2 ? hist[hist.length - 3].count : 0;
+
+            // --- B. RENDER GRAPH (CLEAN LINES) ---
+            const labels = hist.map(item => {
+                const d = new Date(item.date);
+                return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            });
+            const counts = hist.map(item => item.count);
+
+            if (visitorChartInstance) visitorChartInstance.destroy();
+            visitorChartInstance = new Chart(visitorCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Visitors',
+                        data: counts,
+                        borderWidth: 3,
+                        fill: false, 
+                        tension: 0, 
+                        segment: {
+                            borderColor: ctx => ctx.p0.parsed.y > ctx.p1.parsed.y ? '#d93025' : '#1e8e3e'
+                        },
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: '#fff', 
+                        pointBorderColor: '#555' 
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: { padding: { top: 25 } },
+                    plugins: { 
+                        legend: { display: false },
+                        datalabels: {
+                            align: 'top',
+                            anchor: 'end',
+                            color: function(context) {
+                                const index = context.dataIndex;
+                                const value = context.dataset.data[index];
+                                const prev = context.dataset.data[index - 1] || 0;
+                                return value < prev ? '#d93025' : '#1e8e3e';
+                            },
+                            font: { weight: 'bold', size: 12 },
+                            offset: 4
+                        }
+                    },
+                    scales: { 
+                        y: { 
+                            beginAtZero: true, 
+                            ticks: { precision: 0 },
+                            grace: '10%'
+                        },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        // --- C. RENDER TABLE ---
+        const table = document.getElementById("results");
+        table.innerHTML = "<tr><th>Page</th><th>Engagement Score</th></tr>";
+        
+        if (data.pages && data.pages.length > 0) {
+            data.pages.sort((a, b) => b.score - a.score);
+            const maxScore = Math.max(...data.pages.map(p => p.score));
+
+            data.pages.forEach(p => {
+              const relativeWidth = maxScore > 0 ? Math.round(((p.score / maxScore) * 100)) : 0;
+              const row = `
+                <tr>
+                  <td>
+                    <a href="https://www.intpanelshop.co.za${p.url}" target="_blank">${p.url}</a>
+                    <div class="bar"><div class="fill" style="width:${relativeWidth}%;"></div></div>
+                  </td>
+                  <td>${p.score.toLocaleString()}</td>
+                </tr>`;
+              table.insertAdjacentHTML("beforeend", row);
+            });
+        }
+      } catch (err) { console.error("Error loading data:", err); }
+    }
+
+    document.getElementById("autoRefresh").addEventListener("change", (e) => {
+      if (e.target.checked) { 
+          loadData(); 
+          refreshInterval = setInterval(loadData, 30000); 
+      } else {
+          clearInterval(refreshInterval);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", loadData);
+  </script>
+</body>
+</html>
