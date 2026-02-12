@@ -40,8 +40,16 @@
         .gasterol { font-family: 'Gasterol', sans-serif; text-transform: uppercase; letter-spacing: 0.1em; }
         .brand-lime-text { color: var(--brand-lime); }
         
-        .hero-pattern { 
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('assets/img/patterns/Brand-Identity-Patterns-IPS-_page-0010.jpg'); 
+        /* Hero Section using your hero.jpg */
+        .hero-section { 
+            position: relative;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1.5rem;
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85)), url('assets/img/hero.jpg'); 
             background-size: cover;
             background-position: center;
         }
@@ -68,6 +76,18 @@
         
         .nav-link { transition: color 0.3s ease; }
         .nav-link:hover { color: var(--brand-lime); }
+
+        /* Google Reviews Widget Custom Styling */
+        .reviews-container {
+            padding: 80px 0;
+            color: #777;
+            text-align: center;
+            background-color: #050505;
+        }
+        .reviews-container p {
+            font-size: 60px;
+            color: #777;
+        }
     </style>
 </head>
 <body>
@@ -88,7 +108,7 @@
     </nav>
 
     <main>
-        <section class="relative min-h-[95vh] flex items-center justify-center text-center px-6 hero-pattern">
+        <section class="hero-section">
             <div class="max-w-4xl z-10">
                 <h2 class="gasterol text-4xl md:text-5xl leading-tight mb-2">Where Quality Meets</h2>
                 <h1 class="gasterol text-5xl md:text-7xl brand-lime-text mb-8">Affordability</h1>
@@ -112,7 +132,6 @@
             <div class="max-w-6xl mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-4xl gasterol brand-lime-text">Get a Free, No-Obligation Quote</h2>
-                    <p class="opacity-60 mt-2">Professional assessment for your auto body repairs.</p>
                 </div>
 
                 <form action="send_quote.php" method="POST" enctype="multipart/form-data" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -143,18 +162,15 @@
                     </div>
 
                     <div class="space-y-4">
-                        <label class="block text-[10px] gasterol opacity-40 uppercase">3. Uploads (Max 4 Images + Quote)</label>
-                        
+                        <label class="block text-[10px] gasterol opacity-40 uppercase">3. Uploads</label>
                         <div class="upload-box p-4 text-center border-2 border-dashed border-gray-800 hover:border-[#D5FF3F] transition cursor-pointer">
                             <input type="file" name="vehicle_photos[]" id="img-input" multiple accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
                             <p class="text-[10px] opacity-60" id="img-label">Click here to choose images (Max 4)</p>
                         </div>
-
                         <div class="upload-box p-4 text-center border border-gray-800 hover:border-white transition cursor-pointer">
                             <input type="file" name="existing_quote" id="quote-input" accept=".pdf,image/*" class="absolute inset-0 opacity-0 cursor-pointer">
                             <p class="text-[10px] opacity-40" id="quote-label">Upload existing quote (PDF/IMG)</p>
                         </div>
-
                         <button type="submit" class="w-full bg-[#D5FF3F] text-black py-4 font-bold gasterol text-lg hover:bg-white transition mt-2">
                             SUBMIT QUOTE REQUEST
                         </button>
@@ -183,29 +199,33 @@
             </div>
         </section>
 
-        <section class="py-24 bg-[#050505]">
-            <div class="max-w-6xl mx-auto px-6 text-center">
-                <h2 class="gasterol brand-lime-text text-3xl mb-12">Customer Feedback</h2>
-                <div id="google-reviews">
-                    </div>
+        <section class="reviews-container">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="embedsocial-widget" data-ref="e26c4526b8173a0c8c5955ccabcc2458"> 
+                    <a href="https://embedsocial.com/google-reviews-widget/" title="Add Google reviews on a website" target="_blank" class="powered-by-es es-slider"> 
+                        <img src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp" alt="EmbedSocial"> 
+                        <span> Google reviews widget </span> 
+                    </a> 
+                </div> 
+                <script> 
+                (function(d, s, id) { 
+                    var js; if (d.getElementById(id)) {return;} 
+                    js = d.createElement(s); js.id = id; 
+                    js.src = "https://embedsocial.com/cdn/aht.js"; 
+                    d.getElementsByTagName("head")[0].appendChild(js); 
+                }(document, "script", "EmbedSocialWidgetScript")); 
+                </script>
             </div>
         </section>
     </main>
 
     <footer class="bg-[#050505] border-t border-gray-900 pt-20 pb-10 px-6 text-sm">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
-            
             <div class="col-span-1 md:col-span-2">
                 <h3 class="gasterol brand-lime-text text-xl mb-6">International Panel Shop</h3>
-                <p class="opacity-60 mb-6 max-w-sm leading-relaxed">
-                    Over two decades of excellence in the auto body repair industry. Expert panel beating and spray painting since 2003.
-                </p>
-                <p class="font-bold text-base">
-                    7 Bloem Street, Townsend Estate,<br>
-                    Goodwood, Cape Town, 7460
-                </p>
+                [cite_start]<p class="opacity-60 mb-6 max-w-sm leading-relaxed">Over two decades of excellence in the auto body repair industry[cite: 7]. [cite_start]Expert panel beating and spray painting since 2003[cite: 1, 16].</p>
+                <p class="font-bold text-base">7 Bloem Street, Townsend Estate, Goodwood, Cape Town, 7460</p>
             </div>
-
             <div>
                 <h4 class="gasterol text-xs mb-6 opacity-40 uppercase tracking-widest">Navigation</h4>
                 <ul class="space-y-3">
@@ -215,7 +235,6 @@
                     <li><a href="legal.html" class="hover:text-[#D5FF3F] transition">Terms & Conditions</a></li>
                 </ul>
             </div>
-
             <div>
                 <h4 class="gasterol text-xs mb-6 opacity-40 uppercase tracking-widest">Internal Access</h4>
                 <ul class="space-y-3 opacity-60">
@@ -225,13 +244,13 @@
                 </ul>
             </div>
         </div>
-
         <div class="border-t border-gray-900 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30 text-[10px] tracking-widest uppercase">
             <p>&copy; 2026 IPS Goodwood. All Rights Reserved.</p>
             <p>Lat: -33.9056 | Long: 18.5472</p>
         </div>
     </footer>
 
+    <script src="assets/js/engagement.js" defer></script>
     <script>
         document.getElementById('img-input').onchange = function() {
             document.getElementById('img-label').innerHTML = this.files.length + " photos selected";
@@ -239,10 +258,8 @@
         };
         document.getElementById('quote-input').onchange = function() {
             document.getElementById('quote-label').innerHTML = "Quote document attached";
-            document.getElementById('quote-label').style.opacity = "1";
             document.getElementById('quote-label').style.color = "#D5FF3F";
         };
     </script>
-    <script src="assets/js/engagement.js" defer></script>
 </body>
 </html>
